@@ -12,55 +12,87 @@
   <div id="container" class="text-center">
 
     <ion-label style="display: inline-block;
-      background-color: #87ebb1;
-      border: 2px solid #1eff62;
-      color: #1E90FF;
+      background-color: #ff0000;
+      border: 2px solid #ff0000;
+      color: #f60000;
       padding: 4px 8px;
       border-radius: 5px;
       font-weight: bold;
-      text-shadow: 1px 1px 2px rgba(68, 0, 255, 0.2);
-      box-shadow: 2px 2px 5px rgba(140, 0, 255, 0.1);">Agrega una pelicula nueva!</ion-label><br><br><br>
+      text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.2);
+      box-shadow: 2px 2px 5px rgba(255, 0, 0, 0.1);">Agrega un estudiante nuevo con sus calificaciones</ion-label><br><br><br>
 
     <!--Inicio del formulario-->
     <form (submit)="addTask(); $event.preventDefault();">
 
-      <ion-label class="text-gray-400 text-lg font-semibold">Nombre de la Pelicula:</ion-label><br>
+      <ion-label class="text-gray-400 text-lg font-semibold">Nombre del estudiante:</ion-label><br>
       <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
-        [(ngModel)]="newTaskName" name="taskName" placeholder="Pelicula//" required /><br>
+        [(ngModel)]="newTaskName" name="taskName" placeholder="Nombre//" required /><br>
 
-      <ion-label class="text-gray-400 text-lg font-semibold">Nombre del director:</ion-label><br>
+      <ion-label class="text-gray-400 text-lg font-semibold">apellido del estudiante:</ion-label><br>
       <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
-        [(ngModel)]="newAuthorName" name="AuthorName" placeholder="Director//" required /><br>
+        [(ngModel)]="newapellidoName" name="apellidoName" placeholder="apellido//" required /><br>
 
-      <ion-label class="text-gray-400 text-lg font-semibold">enlace de la cancion:</ion-label><br>
+      <ion-label class="text-gray-400 text-lg font-semibold">Matricula del estudiante:</ion-label><br>
       <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
-        [(ngModel)]="newLinkName" name="LinkName" placeholder="Link//" required /><br>
+        [(ngModel)]="newMatriculaName" name="MatriculaName" placeholder="Matricula//" required /><br>
+
+
+        <!--___________________________________________________________________________________________________________________________-->
+      <ion-label class="text-gray-400 text-lg font-semibold">Calificacion de la materias</ion-label><br>
+
+
+
+      <ion-label class="text-gray-400 text-lg font-semibold">DAMM:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newDAMMName" name="DAMMName" placeholder="DAMM//" required /><br>
+
+
+        <ion-label class="text-gray-400 text-lg font-semibold">OCA:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newOCAName" name="OCAName" placeholder="OCA//" required /><br>
+
+      <ion-label class="text-gray-400 text-lg font-semibold">MATE:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newMATEName" name="MATEName" placeholder="MATE//" required /><br>
+
+      <ion-label class="text-gray-400 text-lg font-semibold">PMP:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newPMPName" name="PMPName" placeholder="PMP//" required /><br>
+
+        <ion-label class="text-gray-400 text-lg font-semibold">M3D:</ion-label><br>
+        <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+          [(ngModel)]="newM3DName" name="M3DName" placeholder="M3D//" required /><br>
+
 
       <button
-        class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-semibold font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+        class="focus:outline-none text-white bg-red-700 hover:bg-purple-800 focus:ring-4 focus:ring-red-300 font-semibold font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
         type="submit">Agregar</button><br>
 
     </form>
     <br><br>
     <ion-label style="display: inline-block;
-    background-color: #87ebb9;
-    border: 2px solid #38ff1e;
-    color: #1ee5ff;
+    background-color: #c37c7c;
+    border: 2px solid #bf5d5d7d;
+    color: #72b8c1;
     padding: 4px 8px;
     border-radius: 5px;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(76, 0, 255, 0.2);
-    box-shadow: 2px 2px 5px rgba(0, 0, 255, 0.1);">Peliculas agregadas</ion-label><br>
+    box-shadow: 2px 2px 5px rgba(0, 0, 255, 0.1);">estudiantes Agregados</ion-label><br>
 
     <!-- Tabla de tareas -->
     <table>
       <thead>
         <tr>
-          <th class="text-purple-400 text-lg font-semibold">ID</th>
-          <th class="text-purple-400 text-lg font-semibold">Nombre</th>
-          <th class="text-purple-400 text-lg font-semibold">Director</th>
-          <th class="text-purple-400 text-lg font-semibold">enlace</th>
-          <th class="text-purple-400 text-lg font-semibold">Acciones</th>
+          <th class="text-red-400 text-lg font-semibold">ID</th>
+          <th class="text-red-400 text-lg font-semibold">Nombre</th>
+          <th class="text-red-400 text-lg font-semibold">apellido</th>
+          <th class="text-red-400 text-lg font-semibold">Matricula</th>
+          <th class="text-red-400 text-lg font-semibold">DAMM</th>
+          <th class="text-red-400 text-lg font-semibold">OCA</th>
+          <th class="text-red-400 text-lg font-semibold">PMP</th>
+          <th class="text-red-400 text-lg font-semibold">M3D</th>
+          <th class="text-red-400 text-lg font-semibold">Acciones</th>
         </tr>
       </thead>
 
@@ -71,17 +103,36 @@
           <!-- Mostrar input si se está editando, si no, mostrar el nombre -->
           <td *ngIf="editingTaskId === item.id; else viewMode">
             <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              [(ngModel)]="editedTaskName" placeholder="Nueva pelicula" />
+              [(ngModel)]="editedTaskName" placeholder="Nuevo Nombre" />
             <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              [(ngModel)]="editedAuthorName" placeholder="Nuevo director" />
+              [(ngModel)]="editedapellidoName" placeholder="Nuevo apellido" />
             <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              [(ngModel)]="editedLinkName" placeholder="Nuevo enlace" /> <!-- Agregar este input -->
+              [(ngModel)]="editedMatriculaName" placeholder="Nueva Matricula" /> <!-- Agregar este input -->
+<!--___________________________________________________________________________________________________________________________-->
+
+
+              <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedDAMMName" placeholder="Nueva cal" />
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedOCAName" placeholder="Nueva cal" />
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedPMPName" placeholder="Nueva cal" /> <!-- Agregar este input -->
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedM3DName" placeholder="Nueva cal" /> <!-- Agregar este input -->  
+
           </td>
+
+
+
 
           <ng-template #viewMode>
             <td>{{ item.name }}</td>
-            <td>{{ item.author }}</td>
-            <td>{{ item.link }}</td>
+            <td>{{ item.apellido }}</td>
+            <td>{{ item.Matricula }}</td>
+            <td>{{ item.DAMMN }}</td>
+            <td>{{ item.OCA }}</td>
+            <td>{{ item.PMP }}</td>
+            <td>{{ item.M3D }}</td>
           </ng-template>
 
           <td>

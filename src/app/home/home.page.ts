@@ -30,8 +30,14 @@ export class HomePage implements OnInit {
 
   tasks$!: Observable<Task[]>;
   newTaskName: string = '';
-  newAuthorName: string = '';
-  newLinkName: string = '';
+  newapellidoName: string = '';
+  newMatriculaName: string = '';
+  newDAMMNName: string = '';
+  newOCAName: string = '';
+  newPMPName: string = '';
+  newM3DName: string = '';
+
+
 
 
   //almacenes temporales para las variables que se van a editarr
@@ -52,8 +58,15 @@ export class HomePage implements OnInit {
 
   addTask() {
     const name = this.newTaskName.trim();
-    const author = this.newAuthorName.trim();
-    const link = this.newLinkName.trim();
+    const apellido = this.newapellidoName.trim();
+    const Matricula = this.newMatriculaName.trim();
+    const DAMMN = this.newDAMMNName.trim();
+    const OCA = this.newOCAName.trim();
+    const PMP = this.newPMPName.trim();
+    const M3D = this.newM3DName.trim();
+
+
+
 
     if (!name) {
       alert('El nombre de cancion es obligatorio');
@@ -67,6 +80,12 @@ export class HomePage implements OnInit {
 
     if (!link) {
       alert('El enlace de la canción es obligatorio');
+      return;
+    }
+
+
+    if (!name) {
+      alert('El nombre de cancion es obligatorio');
       return;
     }
 
