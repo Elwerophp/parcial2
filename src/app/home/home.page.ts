@@ -49,6 +49,7 @@ export class HomePage implements OnInit {
   editedOCAName: string = '';
   editedPMPName: string = '';
   editedM3DName: string = '';
+  
 
   constructor(private taskService: TaskService, private router: Router, private authService: AuthService, private alertController: AlertController) { }
 
@@ -126,8 +127,16 @@ export class HomePage implements OnInit {
 
   saveEdit(taskId: string) {
     const name = this.editedTaskName.trim();
-    const author = this.editedAuthorName.trim();
-    const link = this.editedLinkName.trim();
+    const apellido = this.editedapellidoName.trim();
+    const Matricula = this.editedMatriculaName.trim();
+    const DAMMN = this.editedDAMMNName.trim();
+    const OCA = this.editedOCAName.trim();
+    const PMP = this.editedPMPName.trim();
+    const M3D = this.editedM3DName.trim();
+
+    
+
+
 
     if (!name || !author || !link) {
       alert('Todos los campos son obligatorios');
@@ -159,4 +168,15 @@ export class HomePage implements OnInit {
       await alert.present();
     }
   }
+}
+
+export interface Task {
+  id?: string;
+  name: string;
+  apellido: string;
+  Matricula: string;
+  DAMMN: string;
+  OCA: string;
+  PMP: string;
+  M3D: string;
 }
