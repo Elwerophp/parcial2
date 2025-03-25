@@ -1,0 +1,140 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lista de peliculas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <div id="container" class="text-center">
+
+    <ion-label style="display: inline-block;
+      background-color: #87ebb1;
+      border: 2px solid #1eff62;
+      color: #1E90FF;
+      padding: 4px 8px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(68, 0, 255, 0.2);
+      box-shadow: 2px 2px 5px rgba(140, 0, 255, 0.1);">Agrega una pelicula nueva!</ion-label><br><br><br>
+
+    <!--Inicio del formulario-->
+    <form (submit)="addTask(); $event.preventDefault();">
+
+      <ion-label class="text-gray-400 text-lg font-semibold">Nombre de la Pelicula:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newTaskName" name="taskName" placeholder="Pelicula//" required /><br>
+
+      <ion-label class="text-gray-400 text-lg font-semibold">Nombre del director:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newAuthorName" name="AuthorName" placeholder="Director//" required /><br>
+
+      <ion-label class="text-gray-400 text-lg font-semibold">enlace de la cancion:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newLinkName" name="LinkName" placeholder="Link//" required /><br>
+
+      <button
+        class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-semibold font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+        type="submit">Agregar</button><br>
+
+    </form>
+    <br><br>
+    <ion-label style="display: inline-block;
+    background-color: #87ebb9;
+    border: 2px solid #38ff1e;
+    color: #1ee5ff;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(76, 0, 255, 0.2);
+    box-shadow: 2px 2px 5px rgba(0, 0, 255, 0.1);">Peliculas agregadas</ion-label><br>
+
+    <!-- Tabla de tareas -->
+    <table>
+      <thead>
+        <tr>
+          <th class="text-purple-400 text-lg font-semibold">ID</th>
+          <th class="text-purple-400 text-lg font-semibold">Nombre</th>
+          <th class="text-purple-400 text-lg font-semibold">Director</th>
+          <th class="text-purple-400 text-lg font-semibold">enlace</th>
+          <th class="text-purple-400 text-lg font-semibold">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of tasks$ | async">
+          <td>{{ item.id }}</td>
+
+          <!-- Mostrar input si se está editando, si no, mostrar el nombre -->
+          <td *ngIf="editingTaskId === item.id; else viewMode">
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedTaskName" placeholder="Nueva pelicula" />
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedAuthorName" placeholder="Nuevo director" />
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedLinkName" placeholder="Nuevo enlace" /> <!-- Agregar este input -->
+          </td>
+
+          <ng-template #viewMode>
+            <td>{{ item.name }}</td>
+            <td>{{ item.author }}</td>
+            <td>{{ item.link }}</td>
+          </ng-template>
+
+          <td>
+            <!-- Botón Editar / Guardar -->
+            <button
+              class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-semibold font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+              style="margin: 5px;" *ngIf="editingTaskId !== item.id" (click)="startEdit(item)">Editar</button>
+            <button
+              class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-semibold font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+              style="margin: 5px;" *ngIf="editingTaskId === item.id" (click)="saveEdit(item.id!)">Guardar</button>
+
+            <!-- Botón Eliminar -->
+            <button
+              class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-semibold font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+              [disabled]="!item.id" (click)="deleteTask(item.id!)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button (click)="onLogout()"
+      class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-semibold font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
+      Cerrar sesion</button>
+
+  </div>
+</ion-content>
+
+<script>
+  startEdit(task, Task); {
+    this.editingTaskId = task.id;
+    this.editedTaskName = task.name;
+    this.editedAuthorName = task.author;
+    this.editedLinkName = task.link; // Agregar el campo 'link'
+  }
+
+  saveEdit(taskId, string); {
+    const name = this.editedTaskName.trim();
+    const author = this.editedAuthorName.trim();
+    const link = this.editedLinkName.trim();
+
+    if (!name || !author || !link) {
+      alert('Todos los campos son obligatorios');
+      return;
+    }
+
+    this.taskService.updateTask(taskId, { name, author, link })
+      .then(() => {
+        console.log('Canción actualizada');
+        this.editingTaskId = null;
+        this.editedTaskName = '';
+        this.editedAuthorName = '';
+        this.editedLinkName = ''; // Limpiar el campo 'link'
+      })
+      .catch((err: unknown) => console.error('Error al actualizar canción:', err));
+  }
+</script>
