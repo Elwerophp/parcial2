@@ -95,7 +95,13 @@ export class HomePage implements OnInit {
       .then(() => {
         console.log('Cancion agregada');
         this.newTaskName = '';
-        this.newAuthorName = '';
+        this.newapellidoName = '';
+        this.newMatriculaName = '';
+        this.newDAMMNName = '';
+        this.newOCAName = '';
+        this.newPMPName = '';
+        this.newM3DName = '';
+
       })
       .catch((err: unknown) => console.error('Error al agregar cancion:', err));
   }
@@ -140,8 +146,8 @@ export class HomePage implements OnInit {
 
   async onLogout() {
     try {
-      await this.authService.logout(); 
-      this.router.navigate(['/login']); 
+      await this.authService.logout();
+      this.router.navigate(['/login']);
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
       const alert = await this.alertController.create({
