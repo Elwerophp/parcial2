@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyDHJyu1O_gS6miWPExi3GHaxxLvcxPvwFY",
-    authDomain: "ea20-d351a.firebaseapp.com",
-    projectId: "ea20-d351a",
-    storageBucket: "ea20-d351a.firebasestorage.app",
-    messagingSenderId: "58958807198",
-    appId: "1:58958807198:web:67d36164965f1dafba7b8f",
-    measurementId: "G-6BR0CNWHKG"
+    apiKey: "AIzaSyDX4SnM5H4KIeAur23JCuV_3rnikBl79zc",
+    authDomain: "parcial2-505ae.firebaseapp.com",
+    projectId: "parcial2-505ae",
+    storageBucket: "parcial2-505ae.firebasestorage.app",
+    messagingSenderId: "363890615930",
+    appId: "1:363890615930:web:6c83afd81914bcea7efdc3",
+    measurementId: "G-540C0LNYSD"
   }
 };
 
