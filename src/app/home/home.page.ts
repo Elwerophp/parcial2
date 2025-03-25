@@ -43,8 +43,12 @@ export class HomePage implements OnInit {
   //almacenes temporales para las variables que se van a editarr
   editingTaskId: string | null = null;
   editedTaskName: string = '';
-  editedAuthorName: string = '';
-  editedLinkName: string = '';
+  editedapellidoName: string = '';
+  editedMatriculaName: string = '';
+  editedDAMMNName: string = '';
+  editedOCAName: string = '';
+  editedPMPName: string = '';
+  editedM3DName: string = '';
 
   constructor(private taskService: TaskService, private router: Router, private authService: AuthService, private alertController: AlertController) { }
 
@@ -73,27 +77,24 @@ export class HomePage implements OnInit {
       return;
     }
 
-    if (!author) {
+    if (!apellido) {
       alert('El nombre del autor es obligatorio');
       return;
     }
 
-    if (!link) {
+    if (!Matricula) {
       alert('El enlace de la canción es obligatorio');
       return;
     }
 
 
-    if (!name) {
-      alert('El nombre de cancion es obligatorio');
-      return;
-    }
 
-    const newTask: Task = { name, author, link };
+
+    const newTask: Task = { name, apellido, Matricula, DAMMN, OCA, PMP, M3D };
 
     this.taskService.addTask(newTask)
       .then(() => {
-        console.log('Cancion agregada');
+        console.log('calificacion agregada');
         this.newTaskName = '';
         this.newAuthorName = '';
       })
