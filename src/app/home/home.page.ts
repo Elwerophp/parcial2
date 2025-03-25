@@ -148,8 +148,13 @@ export class HomePage implements OnInit {
         console.log('Canción actualizada');
         this.editingTaskId = null;
         this.editedTaskName = '';
-        this.editedAuthorName = '';
-        this.editedLinkName = ''; // Limpiar el campo 'link'
+        this.editedapellidoName = '';
+        this.editedMatriculaName = '';
+        this.editedDAMMNName = '';
+        this.editedOCAName = '';
+        this.editedPMPName = '';
+        this.editedM3DName = '';
+        // Limpiar el campo 'link'
       })
       .catch((err: unknown) => console.error('Error al actualizar canción:', err));
   }
