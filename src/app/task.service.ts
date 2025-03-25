@@ -28,10 +28,13 @@ export class TaskService {
     return deleteDoc(taskDoc);
   }
 }
-
 export interface Task {
   id?: string;
   name: string;
-  author: string
-  link: string
+  apellido: string; // Ensure this property exists
+  Matricula: string;
+  DAMMN: string;
+  OCA: string;
+  PMP: string;
+  M3D: string;
 }

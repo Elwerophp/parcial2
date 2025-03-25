@@ -12,7 +12,6 @@
   <div id="container" class="text-center">
 
     <ion-label style="display: inline-block;
-<<<<<<< HEAD
       background-color: #ff0000;
       border: 2px solid #ff0000;
       color: #f60000;
@@ -21,16 +20,6 @@
       font-weight: bold;
       text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.2);
       box-shadow: 2px 2px 5px rgba(255, 0, 0, 0.1);">Agrega un estudiante nuevo con sus calificaciones</ion-label><br><br><br>
-=======
-      background-color: #87b68188;
-      border: 2px solid #119b5b3a;
-      color: #f021abd2;
-      padding: 4px 8px;
-      border-radius: 5px;
-      font-weight: bold;
-      text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.301);
-      box-shadow: 2px 2px 5px rgba(255, 0, 0, 0.233);">Agrega una pelicula nueva!</ion-label><br><br><br>
->>>>>>> 4d88c00ce1c038cb268c6edf3148b51ac9df052e
 
     <!--Inicio del formulario-->
     <form (submit)="addTask(); $event.preventDefault();">
@@ -76,17 +65,12 @@
 
 
       <button
-<<<<<<< HEAD
         class="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-semibold font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900"
-=======
-        class="focus:outline-none text-white bg-red-700 hover:bg-purple-800 focus:ring-4 focus:ring-red-300 font-semibold font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
->>>>>>> 178e08c767ab710012e9655b44bcce7178b014c9
         type="submit">Agregar</button><br>
 
     </form>
     <br><br>
     <ion-label style="display: inline-block;
-<<<<<<< HEAD
     background-color: #c37c7c;
     border: 2px solid #bf5d5d7d;
     color: #72b8c1;
@@ -94,35 +78,16 @@
     border-radius: 5px;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(76, 0, 255, 0.2);
-    box-shadow: 2px 2px 5px rgba(0, 0, 255, 0.1);">estudiantes Agregados</ion-label><br>
-=======
-    background-color: #87b68188;
-      border: 2px solid #119b5b3a;
-      color: #f021abd2;
-    padding: 4px 8px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.308);
-    box-shadow: 2px 2px 5px rgba(255, 0, 0, 0.226);">Peliculas agregadas</ion-label><br>
->>>>>>> 4d88c00ce1c038cb268c6edf3148b51ac9df052e
-
+    box-shadow: 2px 2px 5px rgba(0, 0, 255, 0.1);">estudiantes Agregados<br>
+    <br><br>
     <!-- Tabla de tareas -->
     <table>
       <thead>
         <tr>
           <th class="text-red-400 text-lg font-semibold">ID</th>
           <th class="text-red-400 text-lg font-semibold">Nombre</th>
-<<<<<<< HEAD
           <th class="text-red-400 text-lg font-semibold">Director</th>
           <th class="text-red-400 text-lg font-semibold">enlace</th>
-=======
-          <th class="text-red-400 text-lg font-semibold">apellido</th>
-          <th class="text-red-400 text-lg font-semibold">Matricula</th>
-          <th class="text-red-400 text-lg font-semibold">DAMM</th>
-          <th class="text-red-400 text-lg font-semibold">OCA</th>
-          <th class="text-red-400 text-lg font-semibold">PMP</th>
-          <th class="text-red-400 text-lg font-semibold">M3D</th>
->>>>>>> 178e08c767ab710012e9655b44bcce7178b014c9
           <th class="text-red-400 text-lg font-semibold">Acciones</th>
         </tr>
       </thead>
@@ -139,8 +104,6 @@
               [(ngModel)]="editedapellidoName" placeholder="Nuevo apellido" />
             <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
               [(ngModel)]="editedMatriculaName" placeholder="Nueva Matricula" /> <!-- Agregar este input -->
-<!--___________________________________________________________________________________________________________________________-->
-
 
               <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
               [(ngModel)]="editedDAMMName" placeholder="Nueva cal" />
@@ -188,7 +151,7 @@
       class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-semibold font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
       Cerrar sesion</button>
 
-  </div>
+  
 </ion-content>
 
 <script>

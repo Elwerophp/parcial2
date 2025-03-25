@@ -32,7 +32,7 @@ export class HomePage implements OnInit {
   newTaskName: string = '';
   newapellidoName: string = '';
   newMatriculaName: string = '';
-  newDAMMNName: string = '';
+  newDAMMName: string = '';
   newOCAName: string = '';
   newPMPName: string = '';
   newM3DName: string = '';
@@ -45,7 +45,7 @@ export class HomePage implements OnInit {
   editedTaskName: string = '';
   editedapellidoName: string = '';
   editedMatriculaName: string = '';
-  editedDAMMNName: string = '';
+  editedDAMMName: string = '';
   editedOCAName: string = '';
   editedPMPName: string = '';
   editedM3DName: string = '';
@@ -65,7 +65,7 @@ export class HomePage implements OnInit {
     const name = this.newTaskName.trim();
     const apellido = this.newapellidoName.trim();
     const Matricula = this.newMatriculaName.trim();
-    const DAMMN = this.newDAMMNName.trim();
+    const DAMMN = this.newDAMMName.trim();
     const OCA = this.newOCAName.trim();
     const PMP = this.newPMPName.trim();
     const M3D = this.newM3DName.trim();
@@ -99,7 +99,7 @@ export class HomePage implements OnInit {
         this.newTaskName = '';
         this.newapellidoName = '';
         this.newMatriculaName = '';
-        this.newDAMMNName = '';
+        this.newDAMMName = '';
         this.newOCAName = '';
         this.newPMPName = '';
         this.newM3DName = '';
@@ -119,8 +119,16 @@ export class HomePage implements OnInit {
   startEdit(task: Task) {
     this.editingTaskId = task.id!;
     this.editedTaskName = task.name;
-    this.editedAuthorName = task.author;
-    this.editedLinkName = task.link; // Agregar el campo 'link'
+    this.editingTaskId = null;
+    this.editedTaskName = '';
+    this.editedapellidoName = task.apellido;
+    this.editedMatriculaName = task.Matricula;
+    this.editedDAMMName = task.DAMMN;
+    this.editedOCAName = task.OCA;
+    this.editedPMPName = task.PMP;
+    this.editedM3DName = task.M3D;
+    
+   // Agregar el campo 'link'
   }
 
   //guardar los cambios de la edicion
@@ -129,7 +137,7 @@ export class HomePage implements OnInit {
     const name = this.editedTaskName.trim();
     const apellido = this.editedapellidoName.trim();
     const Matricula = this.editedMatriculaName.trim();
-    const DAMMN = this.editedDAMMNName.trim();
+    const DAMMN = this.editedDAMMName.trim();
     const OCA = this.editedOCAName.trim();
     const PMP = this.editedPMPName.trim();
     const M3D = this.editedM3DName.trim();
@@ -138,19 +146,19 @@ export class HomePage implements OnInit {
 
 
 
-    if (!name || !author || !link) {
+    if (!name || !apellido || !Matricula) {
       alert('Todos los campos son obligatorios');
       return;
     }
 
-    this.taskService.updateTask(taskId, { name, author, link })
+    this.taskService.updateTask(taskId, { name, apellido, Matricula, DAMMN, OCA, PMP, M3D })
       .then(() => {
         console.log('Canción actualizada');
         this.editingTaskId = null;
         this.editedTaskName = '';
         this.editedapellidoName = '';
         this.editedMatriculaName = '';
-        this.editedDAMMNName = '';
+        this.editedDAMMName = '';
         this.editedOCAName = '';
         this.editedPMPName = '';
         this.editedM3DName = '';
@@ -175,13 +183,3 @@ export class HomePage implements OnInit {
   }
 }
 
-export interface Task {
-  id?: string;
-  name: string;
-  apellido: string;
-  Matricula: string;
-  DAMMN: string;
-  OCA: string;
-  PMP: string;
-  M3D: string;
-}
