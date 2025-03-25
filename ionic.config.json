@@ -1,5 +1,5 @@
 {
-  "name": "parcial2",
+  "name": "ionic-app-base",
   "integrations": {},
-  "type": "angular"
+  "type": "angular-standalone"
 }
